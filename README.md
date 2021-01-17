@@ -325,7 +325,7 @@ Now you can unpack and install these mods to the server using ModMgr. See the ab
 
 ### Authorize server to use DLC
 
-With the mods downloaded and installed, you need to generate a valid token for the server, so that you have the ability to select the DLC content during mod creation and can add it to your mod. If a valid key isn't provided the DLC content simply won't appear in the MAS2 vehicle list, and ModMgr will not allow you to install it.
+With the mods downloaded and installed, you need to generate a valid token for the server, so that you have the ability to select the DLC during mod creation and can add it to your mod. If a valid key isn't provided the DLC simply won't appear in the MAS2 vehicle list, and ModMgr will not allow you to install it.
 
 To generate the token for your server:
 
