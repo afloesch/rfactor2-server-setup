@@ -24,8 +24,8 @@ Metadata:
       parent: b6b80423-8ad5-4575-b38b-eafa12a6d506
       embeds:
         - 1469f9bb-5048-4713-a780-99227a059c80
-        - e4e985f0-0940-410b-8b59-68b9811426ef
       iscontainedinside:
+        - b6b80423-8ad5-4575-b38b-eafa12a6d506
         - b6b80423-8ad5-4575-b38b-eafa12a6d506
         - b6b80423-8ad5-4575-b38b-eafa12a6d506
         - b6b80423-8ad5-4575-b38b-eafa12a6d506
@@ -89,12 +89,13 @@ Metadata:
         width: 60
         height: 60
       position:
-        x: 270
-        'y': -180
+        x: 220
+        'y': -170
       z: 1
       parent: b6b80423-8ad5-4575-b38b-eafa12a6d506
       embeds: []
       iscontainedinside:
+        - b6b80423-8ad5-4575-b38b-eafa12a6d506
         - b6b80423-8ad5-4575-b38b-eafa12a6d506
         - b6b80423-8ad5-4575-b38b-eafa12a6d506
         - b6b80423-8ad5-4575-b38b-eafa12a6d506
@@ -216,6 +217,7 @@ Metadata:
         - b6b80423-8ad5-4575-b38b-eafa12a6d506
         - b6b80423-8ad5-4575-b38b-eafa12a6d506
         - b6b80423-8ad5-4575-b38b-eafa12a6d506
+        - b6b80423-8ad5-4575-b38b-eafa12a6d506
     e298ad12-ed7c-4a68-89ec-2c60dc3c52be:
       size:
         width: 60
@@ -274,6 +276,7 @@ Metadata:
         - 23d65f58-76ad-46fa-a4c8-48461d01a906
         - 23d65f58-76ad-46fa-a4c8-48461d01a906
         - 23d65f58-76ad-46fa-a4c8-48461d01a906
+        - 23d65f58-76ad-46fa-a4c8-48461d01a906
     61bea70f-0af5-4795-9e22-bc1faec87580:
       source:
         id: 23d65f58-76ad-46fa-a4c8-48461d01a906
@@ -286,23 +289,13 @@ Metadata:
       target:
         id: 04979b61-e6e9-4501-8e51-dee0228d4bad
       z: 0
-    e4e985f0-0940-410b-8b59-68b9811426ef:
-      size:
-        width: 60
-        height: 60
-      position:
-        x: 100
-        'y': -320
-      z: 2
-      parent: 2c4fa584-9e77-4ff8-9ea8-a86e830a8bda
-      embeds: []
     1469f9bb-5048-4713-a780-99227a059c80:
       size:
         width: 60
         height: 60
       position:
-        x: 180
-        'y': -270
+        x: 140
+        'y': -290
       z: 2
       parent: 2c4fa584-9e77-4ff8-9ea8-a86e830a8bda
       embeds: []
@@ -344,12 +337,7 @@ Metadata:
         - 2c4fa584-9e77-4ff8-9ea8-a86e830a8bda
         - 2c4fa584-9e77-4ff8-9ea8-a86e830a8bda
         - 2c4fa584-9e77-4ff8-9ea8-a86e830a8bda
-    ef24b1bc-1fc3-4412-8403-1728c8d2b7a0:
-      source:
-        id: e4e985f0-0940-410b-8b59-68b9811426ef
-      target:
-        id: 1469f9bb-5048-4713-a780-99227a059c80
-      z: 2
+        - 2c4fa584-9e77-4ff8-9ea8-a86e830a8bda
 Parameters:
   InstanceTypeParameter:
     Type: String
@@ -493,15 +481,6 @@ Resources:
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 5c7f9c15-6bac-4456-abcf-952be388111e
-  EC2V3MKA3:
-    Type: 'AWS::EC2::Volume'
-    Properties:
-      Size:
-        Ref: DiscSizeParameter
-      AvailabilityZone: !GetAtt EC2IX0GO.AvailabilityZone
-    Metadata:
-      'AWS::CloudFormation::Designer':
-        id: e4e985f0-0940-410b-8b59-68b9811426ef
   EC2IX0GO:
     Type: 'AWS::EC2::Instance'
     Properties:
@@ -513,17 +492,16 @@ Resources:
       SecurityGroupIds:
         - !Ref EC2SGBB3U
       SubnetId: !Ref EC2S4WPE6
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeType: gp2
+            VolumeSize: 
+              Ref: DiscSizeParameter
+            DeleteOnTermination: true
+            Encrypted: false   
       UserData: >-
         PHBvd2Vyc2hlbGw+CiR3b3JrRGlyPSJDOlwiCiRzdGVhbWNtZFVSTD0iaHR0cHM6Ly9zdGVhbWNkbi1hLmFrYW1haWhkLm5ldC9jbGllbnQvaW5zdGFsbGVyL3N0ZWFtY21kLnppcCIKCiMgaW5zdGFsbCBzdGVhbWNtZApjZCAkd29ya0RpcgpJbnZva2UtV2ViUmVxdWVzdCAtVXJpICIkc3RlYW1jbWRVUkwiIC1PdXRGaWxlICIuXHN0ZWFtY21kLnppcCIKRXhwYW5kLUFyY2hpdmUgLlxzdGVhbWNtZC56aXAgLURlc3RpbmF0aW9uUGF0aCAuXHN0ZWFtY21kCnJtIC4vc3RlYW1jbWQuemlwCgojIGZldGNoIHJGYWN0b3IyIGRlZGljYXRlZCBzZXJ2ZXIgYW5kIGEgY291cGxlIHRlc3QgYXNzZXRzCmNkIC5cc3RlYW1jbWQKLi9zdGVhbWNtZCArbG9naW4gYW5vbnltb3VzICtmb3JjZV9pbnN0YWxsX2RpciAuLlxyZmFjdG9yMi1kZWRpY2F0ZWQgK2FwcF91cGRhdGUgNDAwMzAwICtxdWl0Ci4vc3RlYW1jbWQgK2xvZ2luIGFub255bW91cyArd29ya3Nob3BfZG93bmxvYWRfaXRlbSAzNjU5NjAgOTUxOTg2MzEyICtxdWl0Ci4vc3RlYW1jbWQgK2xvZ2luIGFub255bW91cyArd29ya3Nob3BfZG93bmxvYWRfaXRlbSAzNjU5NjAgMTc4MjkxMTgzOSArcXVpdApjcCAuXHN0ZWFtYXBwc1x3b3Jrc2hvcFxjb250ZW50XDM2NTk2MFwqXCoucmZjbXAgJHdvcmtEaXJccmZhY3RvcjItZGVkaWNhdGVkXFBhY2thZ2VzXAoKIyBjb3B5IGV4ZWN1dGFibGVzIGludG8gcm9vdApjZCAuLlxyZmFjdG9yMi1kZWRpY2F0ZWQKY3AgLlxTdXBwb3J0XFRvb2xzXE1BUzIuZXhlIC5cTUFTMi5leGUKY3AgLlxCaW42NFxNb2RNZ3IuZXhlIC5cTW9kTWdyLmV4ZQpjcCAiLlxCaW42NFxyRmFjdG9yMiBEZWRpY2F0ZWQuZXhlIiAiLlxyRmFjdG9yMiBEZWRpY2F0ZWQuZXhlIgoKIyBzZXR1cCBmaXJld2FsbCBydWxlcwpOZXctTmV0RmlyZXdhbGxSdWxlIC1Qcm9ncmFtICJDOlxyZmFjdG9yMi1kZWRpY2F0ZWRcckZhY3RvcjIgRGVkaWNhdGVkLmV4ZSIgLUFjdGlvbiBBbGxvdyAtUHJvZmlsZSBQdWJsaWMsUHJpdmF0ZSAtRGlyZWN0aW9uIEluYm91bmQgLURpc3BsYXlOYW1lICJyRmFjdG9yMiBTZXJ2ZXIiIC1EZXNjcmlwdGlvbiAiQWxsb3cgckZhY3RvcjIgU2VydmVyIGNvbm5lY3Rpb25zIgpOZXctTmV0RmlyZXdhbGxSdWxlIC1Qcm9ncmFtICJDOlxyZmFjdG9yMi1kZWRpY2F0ZWRcckZhY3RvcjIgRGVkaWNhdGVkLmV4ZSIgLUFjdGlvbiBBbGxvdyAtUHJvZmlsZSBQdWJsaWMsUHJpdmF0ZSAtRGlyZWN0aW9uIE91dGJvdW5kIC1EaXNwbGF5TmFtZSAickZhY3RvcjIgU2VydmVyIiAtRGVzY3JpcHRpb24gIkFsbG93IHJGYWN0b3IyIFNlcnZlciBvdXRib3VuZCBjb25uZWN0aW9ucyIKCldyaXRlLU91dHB1dCAiU3VjY2VzcyEgckZhY3RvcjIgZGVkaWNhdGVkIHNlcnZlciBpcyBhdmFpbGFibGUgaW4gIiArICR3b3JrRGlyICsgInJmYWN0b3IyLWRlZGljYXRlZFwiCjwvcG93ZXJzaGVsbD4=
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 1469f9bb-5048-4713-a780-99227a059c80
-  EC2VA22HUG:
-    Type: 'AWS::EC2::VolumeAttachment'
-    Properties:
-      Device: /dev/sdh
-      VolumeId: !Ref EC2V3MKA3
-      InstanceId: !Ref EC2IX0GO
-    Metadata:
-      'AWS::CloudFormation::Designer':
-        id: ef24b1bc-1fc3-4412-8403-1728c8d2b7a0
