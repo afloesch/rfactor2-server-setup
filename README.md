@@ -364,15 +364,9 @@ Now you can follow the same steps outlined earlier in this guide for installing 
   
   Failing to do any those things, or even a teeny tiny little typo, will mean the server can't be reached from outside the network.
 
-- **I'm hosting a dedicated rFactor2 server in my home network for internet games, but can't connect to my own server from home, and others can outside the network**
-
-  We've all been there... that's exactly why I created all this. I never could get this working either. I read all kinds of gibberish and wacky theories in forums that was truly senseless. Even setting up custom route table entries to make sure calls to the network's external ip address were always routed to the server didn't cure this problem for me, which was really surprising. Every time I would try to connect the client would throw the error "Invalid Server Details" which, if you google, is a complete wasteland of results.
-  
-  I had no problem with this at all once the server was outside my network in AWS :-). I guess I could have VPN'd out of my network and then connected back in but I mean, come on, that's crazy. Just fix the application please.
-
 - **I setup and host a local server but can't see it in rFactor2**
 
-  That sucks. I haven't tested the local LAN use-case myself since it doesn't fit what I'm trying to do, but I have read in a number of places people with the same problem who solved it by updating the ports used by the server. The fix makes sense to me if the problem is the client is listening on different ports for LAN games than for internet games. Give that fix a try. 
+  I haven't tested the local LAN use-case myself, but I have read in a number of places people with the same problem who solved it by updating the ports used by the server. The fix makes sense to me if the problem is the client is listening on different ports for LAN games than for internet games. Give that fix a try. 
   
   You need to update the `.\rfactor2-dedicated\UserData\player\Multiplayer.json` file with the new http port number, and then start the server.
 
@@ -380,12 +374,6 @@ Now you can follow the same steps outlined earlier in this guide for installing 
   - TCP - 27013 - rfactor http port
   - UDP - 27014 - steam port
   - UDP - 27015 - steam port
-
-- **I host my server on the same computer and can't connect to it**
-
-  If you are hosting your rFactor2 server on the same computer you are playing on, a *potential* fix that might help, and seems to have helped others, is to open your rFactor2 install folder and create a custom shortcut to the game executable, but modify the target of the shortcut (right click on the shortcut to edit it) so it also has these values after the path with a space `+connect 127.0.0.1 +password <serverpassword>`. 
-  
-  127.0.0.1, for those that don't know, is localhost, aka the local computer. The shortcut will launch the game and then immediately try to connect to the server at 127.0.0.1. Sounds lame I know, but in theory it makes sense that if the game was using "localhost" instead of the localhost ip address 127.0.0.1 to connect to the server, and using some API that can't resolve "localhost" to 127.0.0.1, it might be the problem.
 
 - **When connecting to my rFactor2 server in game I get an error that the mod could not be downloaded**
 
