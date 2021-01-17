@@ -141,7 +141,7 @@ Thanks to the CloudFormation template, when the instance is started for the firs
 
 ### Additional environment details
 
-For those of you who have done this before you will notice that our folder structure is a little different from what rFactor2 recommends in their documentation, in that we have actually copied all the executables into the root directory instead of creating shortcuts to them. The reason for this is it solves a couple little pathing issues we ran into with ModMgr.exe and rFactor2 Dedicated.exe. 
+For those of you who have done this before you will notice that our folder structure is a little different from what the official documentation recommends, in that we have actually copied all the executables into the root directory instead of creating shortcuts to them. The reason for this is it solves a couple little pathing issues we ran into with ModMgr.exe and rFactor2 Dedicated.exe. 
 
 In my testing of ModMgr.exe, when run from within the Bin64 directory it adds the Bin64 directory to the path for the installed mods and packages. By simply copying to the root it defaults to the correct paths for the Installed and the Packages folders that are located at the root folder, and helps avoid this annoying split install situation where some of the files get installed to the root and some of it into the Bin64 folder due to just not understanding its settings. Surely, for a newcomer, the process of actually creating the mod you want to host is confusing enough as it is without this extra hurdle. This one isn't technically a bug but it's... poorly optimized shall we say.
 
