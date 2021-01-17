@@ -1,15 +1,13 @@
 # rFactor2 Dedicated Hosting (on AWS for free)
 
-This guide compiles some basic AWS (Amazon Web Services) scripts put together to simplify the process of hosting a dedicated rFactor2 server, as well as covers every step on how to create, host, and manage your events in detail, and automates as much of this work as possible. You don't need to know anything about coding or AWS at all to complete this guide, or anything about setting up your home network or how to host a server. All you need to know is rFactor2 is awesome and would be way more awesome with your own multiplayer server. 
-
-The current [rFactor2 server setup guide](https://docs.studio-397.com/users-guide/setting-up-a-dedicated-server) covers the setup process only broadly, and the actual implementation of the server itself is so poorly done and filled with pitfalls that it can be incredibly frustrating to setup. It certainly doesn't help at all with the basic problem of hosting. I put this together over an afternoon as I worked through the pain and bugs myself, and hopefully this makes someone else's life easier too.
+This guide is intended to simplify the process of hosting a dedicated rFactor2 server, as well as cover every step on how to create, host, and manage your events in detail. If you choose to host on AWS using this guide we will automate as much of this work as possible. You don't need to know anything about coding or AWS at all, or anything about setting up your home network or how to host a server. All you need to know is rFactor2 is awesome and would be way more awesome with your own multiplayer server. 
 
 The only thing you need to get started is:
 
 - An [AWS account](https://aws.amazon.com/free/). Just signup and give them some payment info.
 - Remote Desktop (Windows Pro) or an application that can make a remote desktop connection.
 
-Once you are done you will have a server that you can run for free, and also start and stop at whim in the event you are paying a little for a larger instance size. That way if you don't want to leave the server running all the time (i.e. not pay for it all the time), but would like to be able to start it up again easily, you can. Think of this like a managed hosting provider that you will pay a fraction for, if hardly anything at all, and can run completely on-demand.
+Once you are done you will have a server that you can run for free, and also start and stop at whim. That way if you don't want to leave the server running all the time (i.e. not pay for it all the time), but would like to be able to start it up again easily, you can. Think it like a managed hosting provider that you will pay a fraction for, if hardly anything at all, and can run completely on demand.
 
 ## Index
 
