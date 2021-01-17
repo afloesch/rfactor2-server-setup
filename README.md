@@ -41,20 +41,20 @@ Once you have your aws account setup and you are logged into the aws console you
 
 The first thing you need to decide is what region to deploy your server. This is the actual physical location of the AWS data center where your server will be deployed. It's important to choose the AWS region closest to your home or business for the lowest possible latency (ping time), and thus best experience. Select the region dropdown and then select your desired location.
 
-<img alt="aws region" src="img/aws_region.png" width="650"/>
+<img alt="aws region" src="images/aws_region.png" width="650"/>
 
 ### Setup a key pair
 
 In order to access the server we are about to create you will need to generate a public/private key pair. AWS makes this easy for us.
 
 1) In the AWS search box search for `EC2` and click on it.
-<br/><img alt="aws EC2" src="img/aws_ec2.png" width="400" />
+<br/><img alt="aws EC2" src="images/aws_ec2.png" width="400" />
 
 2) In the list of EC2 functions on the left, scroll-down to `Network & Security` and click on `Key Pairs`.
-<br/><img alt="aws key pair" src="img/aws_ec2_keypair.png" width="400" />
+<br/><img alt="aws key pair" src="images/aws_ec2_keypair.png" width="400" />
 
 3) Enter a name for your key, in this example we will name it "rFactor2 Server", and select the `pem` format, then click the `Create key pair` button.
-<br/><img alt="aws create key" src="img/aws_create_keypair.png" width="600" />
+<br/><img alt="aws create key" src="images/aws_create_keypair.png" width="600" />
 
 This will create and download a file called `rFactor2 Server.pem` in your Downloads folder, which is actually the private key to access your server. If you ever lose the private key file you won't be able to login to your server anymore, and will need to delete and recreate everything with a new key, so keep your key safe.
 
@@ -78,7 +78,7 @@ Enter a stack name - anything you like - and change the `KeyNameParameter` to th
 
 See some final example settings below.
 
-<img alt="aws cloudformation settings" src="img/aws_cf_settings.png" width="600" />
+<img alt="aws cloudformation settings" src="images/aws_cf_settings.png" width="600" />
 
 4) Click the `Next` button after configuring your key name and stack name in the stack details.
 
@@ -88,7 +88,7 @@ See some final example settings below.
 
 Once stack creation is started it can take up to 15 minutes for everything to finish, so take a break while you wait and pat yourself on the back for making it this far. You're gonna be turning laps on your own server in no time. When everything is complete the status will change to `CREATE_COMPLETE` like in the below screenshot.
 
-<img src="img/aws_cf_create_status.png" alt="cf creation" width="350"/>
+<img src="images/aws_cf_create_status.png" alt="cf creation" width="350"/>
 
 If for some reason you encounter an error during stack creation take a look at the troubleshooting items at the bottom of this guide around AWS.
 
@@ -99,23 +99,23 @@ With the stack created you can now connect to the server to start setting up eve
 First you need to get the connection settings and credentials for your server.
 
 1) Leave CloudFormation and go back to the main [AWS console](console.aws.amazon.com) by clicking on the AWS logo in the top left.
-<br/><img src="img/aws_nav_bar.png" width="300" alt="aws nav bar" />
+<br/><img src="images/aws_nav_bar.png" width="300" alt="aws nav bar" />
 
 2) You should now see `EC2` in the list of recently visited services. Click on it to go back to `EC2`.
 
 3) The EC2 dashboard should show you now have at least one running instance. Click on `Instances` under the Instances drop-down, or on the dashboard.
 
 4) Select the rFactor2 instance checkbox as shown below and then click `Connect` in the top right.
-</br><img src="img/aws_instance.png" alt="aws instance screen" width="600"/>
+</br><img src="images/aws_instance.png" alt="aws instance screen" width="600"/>
 
 5) Select the RDP client tab so we can get the Admin password. Click on `Get password` as shown below.
-</br><img src="img/aws_instance_connect.png" alt="aws instance connect" width="600"/>  
+</br><img src="images/aws_instance_connect.png" alt="aws instance connect" width="600"/>  
 
 6) Click `Browse` and open the private key file. In our example we have the key "rFactor2 Server.pem" so that file was opened. The text content shown in the textarea shows the beginning of the private key. With the key entered click `Decrypt Password` at the bottom right.
-<br/><img src="img/aws_instance_pwd.png" alt="aws key file" width="500"/>
+<br/><img src="images/aws_instance_pwd.png" alt="aws key file" width="500"/>
 
 7) You will end up back on the `RDP client` tab with all necessary connection info. It should look like below.
-<br/><img src="img/aws_connect_settings.png" alt="aws connect settings" width="500"/>
+<br/><img src="images/aws_connect_settings.png" alt="aws connect settings" width="500"/>
 
 > Note: ***the password is temporary***, so if you try to remote desktop to the server after some time you may find a saved password doesn't work anymore, and the password will need to be regenerated in AWS using the above process again, so don't lose that key file.
 
@@ -125,11 +125,11 @@ Here's an example of a manual RDP setup to connect to our rFactor2 server:
 
 1) Open Remote Desktop on Windows or an equivalent application.
 2) Copy the host and the username, and click Connect
-<br/><img src="img/rdp_settings.png" alt="rdp" width="300"/>
+<br/><img src="images/rdp_settings.png" alt="rdp" width="300"/>
 3) Copy and submit the password when prompted
-<br/><img src="img/rdp_password.png" alt="rdp" width="250"/>
+<br/><img src="images/rdp_password.png" alt="rdp" width="250"/>
 4) Accept the server certificate by clicking Yes
-<br/><img src="img/rdp_cert.png" alt="rdp" width="300"/>
+<br/><img src="images/rdp_cert.png" alt="rdp" width="300"/>
 
 Once complete it will load a new window on your computer with your new Windows server. Sweet you're nearly up and running now.
 
@@ -137,7 +137,7 @@ Once complete it will load a new window on your computer with your new Windows s
 
 Thanks to the CloudFormation template, when the instance is started for the first time it runs a powershell script in the background to fetch steamcmd and rFactor2 dedicated, and setup the environment so everything is ready to be used. All that's left is for you to create the events and start the rFactor2 dedicated server. You can find rFactor2 server and all utilities in the `C:\rfactor2-dedicated` folder, so just open up file explorer, go there, and you should see a folder like below:
 
-<img src="img/rf_folder.png" alt="rfactor2 server folder" width="500" />
+<img src="images/rf_folder.png" alt="rfactor2 server folder" width="500" />
 
 > Note: if you don't see the `rFactor2 Dedicated.exe` in this folder and you just created the stack then you may have simply connected to the server before the background bootstrap script has completed. Just wait a little longer and everything should end up looking like the screenshot above.
 
@@ -183,7 +183,7 @@ ModMgr can be used to install mod files that have already been downloaded from t
 
 For any mod you wish to host in an event start by finding that item in the workshop, and then copy its id from the steam URL bar. Here's an example:
 
-<img src="img/steam_workshop.png" alt="steam" width="500" />
+<img src="images/steam_workshop.png" alt="steam" width="500" />
 
 Click on the windows search box in your server, search for `powershell` or `cmd`, and open it. I will demonstrate this assuming usage of the AWS hosting guide from above, but the process would be basically the same if your steamcmd folder is at a different path. Enter the below commands in powershell one-by-one and hit enter. Replace WORKSHOP_ITEM_ID with the id of the steam workshop mod you copied earlier.
 
@@ -204,7 +204,7 @@ Once you're done downloading any mods and they are all copied over to the packag
 
 Open ModMgr and it should look relatively similar to below.
 
-<img src="img/modmgr_default.png" alt="modmgr" width="600" />
+<img src="images/modmgr_default.png" alt="modmgr" width="600" />
 
 Make sure both the `Mods` and the `Components` checkboxes at the top left are checked to see everything.
 
@@ -225,27 +225,27 @@ With the MAS2 application we can create a custom mod, that bundles the selected 
 Open MAS2 and we will create a simple mod with Sao Paulo and the Tatuus. 
 
 1) Click the box icon that we have highlighted in red, and then click `Create New Mod Package`.
-<br/><img src="img/mas2_newmod_edit.png" alt="mas2" width="650" />
+<br/><img src="images/mas2_newmod_edit.png" alt="mas2" width="650" />
 
 2) Give your mod a name. This name appears in the lobby of the server when players join. In the below example a custom path is set for the rfm MAS file cause it can be helpful when editing it later or for backups. Click Next once you have your mod name and file paths setup.
-<br/><img src="img/mas2_modname.png" alt="mas2" width="650" />
+<br/><img src="images/mas2_modname.png" alt="mas2" width="650" />
 
 3) Now we get a track selection screen where we can select the desired tracks that will be cycled through on the server after each event finishes. If you don't see any tracks here go back to the ModMgr section on how to install workshop mods. Select the Sau Paulo track and click `Next`.
-<br/><img src="img/mas2_track_select.png" alt="track selection" width="300">
+<br/><img src="images/mas2_track_select.png" alt="track selection" width="300">
 
 4) Next is the car selection screen. Select the Tatuus and click `Next`.
-<br/><img src="img/mas2_car_select.png" alt="car selection" width="300" />
+<br/><img src="images/mas2_car_select.png" alt="car selection" width="300" />
 
 5) On the components screen you don't need to select anything, since all clients will already have these default assets installed with rFactor2. Click `Done`.
-<br/><img src="img/mas2_comp_select.png" alt="car selection" width="300" />
+<br/><img src="images/mas2_comp_select.png" alt="car selection" width="300" />
 
 6) Here you can select which teams are available and what track layouts for the selected track/(s). In this case we only have one track layout, and will allow all Tatuus teams. When changing values here change only the Layouts or the Teams checkboxes. Click `Package` to bundle your mod when ready.
-<br/><img src="img/mas2_mod_pkg.png" alt="car selection" width="500" />
+<br/><img src="images/mas2_mod_pkg.png" alt="car selection" width="500" />
 
 > Note: Don't select any of the checkboxes for the small Locations and Vehicles windows. This unnecessarily increases the mod size, and seems to be some kind of legacy functionality to include all assets to be served with the mod. Not needed.
 
 7) After the mod has been packaged click the `Install` button to install it to the server. If successful the red square will turn green as shown below, and the Uninstall button will become active.
-<br/><img src="img/mas2_mod_installed.png" alt="car selection" width="500" />
+<br/><img src="images/mas2_mod_installed.png" alt="car selection" width="500" />
 
 The new mod will now be available to rFactor2 dedicated server the next time it's started. Click `Done` to close the window, and you can also close MAS2 if you don't want to create another mod.
 
@@ -256,33 +256,33 @@ If you jumped right here and didn't read the sections on ModMgr or MAS2 go back 
 With our mod created it's time to fire up the server and test it.
 
 1) Start rFactor2 Dedicated.exe on the server and you should see this. If not it's most likely because the server cannot find a valid custom mod installed.
-<br/><img src="img/rf_init.png" alt="server app init" />
+<br/><img src="images/rf_init.png" alt="server app init" />
 
 2) Select the mod you want to run in the dropdown, and enter an admin password. Click `Vehicles`.
-<br/><img src="img/rf_mod_select.png" alt="server mod selection" />
+<br/><img src="images/rf_mod_select.png" alt="server mod selection" />
 
 3) On the vehicle selection screen you can further change which cars will be available on the server, or set a few other limations, like limit the allowed driving camera views. Click `Config` when finished.
-<br/><img src="img/rf_vehicle_select.png" alt="server vehicle selection" width="400" />
+<br/><img src="images/rf_vehicle_select.png" alt="server vehicle selection" width="400" />
 
 4) On the track selection screen you can limit allowed tracks similar to the vehicle selection, and there are a number of other important server options here as well. By selecting the SaoPaulo GP track the `Weather` button becomes active, and if clicked presents additional options where we can set more fine grained weather behavior for the event. The maximum number of players slider can be useful in the event you start seeing lag with larger numbers of people. Click `Options` when done.
-<br/><img src="img/rf_track_select.png" alt="server track selection" width="400" />
+<br/><img src="images/rf_track_select.png" alt="server track selection" width="400" />
 
 5) Lastly, we are presented with all the final server options before it starts. The race name field is what appears in the server list when searching for servers in game in rFactor2. The password field is optional, and if left blank will create a public server that anyone can join. Set all desired options for the event and click `Load Track` to start the server.
-<br/><img src="img/rf_server_options.png" alt="server options" width="400" />
+<br/><img src="images/rf_server_options.png" alt="server options" width="400" />
 
 After a few seconds everything will load and the server status screen will appear as shown below. Once you see an active Uptime counter and Session Status countdown the server is online and should be visible in the rFactor multiplayer server list.
 
-<img src="img/rf_running.png" alt="server online" width="400" />
+<img src="images/rf_running.png" alt="server online" width="400" />
 
 If you want to shut the server down simply click `Exit` and the server will shutdown. If you want to leave it running all the time don't click exit and just leave the window up and close your remote desktop session. This window will show any users that have connected to your server, and obviously acts as an admin control panel for kicking users or advancing the session. With the Add AI button you can add an AI opponent to the session.
 
 Okay, moment of truth time. Start rFactor2 on your PC and open up the multiplayer server list. You can search for the server event by name, in this example the event name is "Test Race", or I like to just sort by ping and then it ends up somewhere near the top of the results.
 
-<img src="img/rf_client.png" alt="rfactor server list" width="600" />
+<img src="images/rf_client.png" alt="rfactor server list" width="600" />
 
 Select your test server and make sure you can connect. If you get this you know all is well:
 
-<img src="img/rf_client_connected.png" alt="rfactor online" width="600" />
+<img src="images/rf_client_connected.png" alt="rfactor online" width="600" />
 
 If you followed this guide the whole way through, big congrats, you're basically a software engineer now. Many of you know how painful this seemingly simple setup process can be with rFactor2 dedicated server, and hopefully this AWS approach has helped save you a lot of pain, and perhaps even some dollars.
 
@@ -294,11 +294,11 @@ Running events with DLC content is obviously a little different since the worksh
 
 In order to download this content and install the mods for your server open Steam > View > Inventory, as shown below.
 
-<img src="img/steam_inventory.png" alt="rfactor online" width="400" />
+<img src="images/steam_inventory.png" alt="rfactor online" width="400" />
 
 From the inventory page you can view the DLC content you have downloaded for rFactor2. Click on any mod you want to use to view its workshop page and grab the id of the workshop mod.
 
-<img src="img/steam_workshop.png" alt="steam workshop" width="600"/>
+<img src="images/steam_workshop.png" alt="steam workshop" width="600"/>
 
 With the id for the DLC mod you can now use the steamcmd to download the mod package file. The commands for powershell are below. Replace the uppercase strings with the correct data.
 
@@ -309,11 +309,11 @@ cd C:\steamcmd
 
 If you are running the steamcmd for the first time from your server steam will require a one time second factor of authentication, and will put up a prompt like below. If you downloaded a free workshop mod already the reason you did not get this process is that steamcmd was authenticated as an anonymous user, and this time you are authenticating as yourself.
 
-<img src="img/steam_guard_cli.png" alt="steam guard" width="600" />
+<img src="images/steam_guard_cli.png" alt="steam guard" width="600" />
 
 Open your email and you should find an email from steam with the code you need to enter to complete authentication. It will look like this:
 
-<img src="img/steam_guard_code.png" alt="steam guard code" width="350"/>
+<img src="images/steam_guard_code.png" alt="steam guard code" width="350"/>
 
 Type that code into the command line and steam will download the DLC for you just like other workshop mods, and you won't have to do that two-factor process again on that machine.
 
@@ -395,7 +395,7 @@ Now you can follow the same steps outlined earlier in this guide for installing 
 
 - **I followed the AWS guide but the rFactor2 Dedicated.exe never populated in the root folder**
 
-  That is odd. Every now and then after bootstrapping there can be issues with AWS network connections for longer than usual. If the executable never gets populated in the `rfactor2-dedicated` folder you could try deleting it and the steamcmd folder, and then copy the rf2serversertup.ps1 powershell script in this gist (scroll down to see it) to your server. Copying it anywhere to the server is fine, and then right-click on it and select Run in powershell. This will re-run the scripted setup process that fetches steamcmd, the rFactor2 dedicated server, and sets up the folder and firewall. Powershell may prompt you about the execution policy, which you can skip by entering "N" and then enter.
+  That is odd. Every now and then after bootstrapping there can be issues with AWS network connections for longer than usual. If the executable never gets populated in the `rfactor2-dedicated` folder you could try deleting it and the steamcmd folder, and then copy the rf2serversertup.ps1 powershell script in this repo to your server. Copying it anywhere to the server is fine, and then right-click on it and select Run in powershell. This will re-run the scripted setup process that fetches steamcmd, the rFactor2 dedicated server, and sets up the folder and firewall. Powershell may prompt you about the execution policy, which you can skip by entering "N" and then enter.
 
 - **I followed the AWS guide but CloudFormation returned an error when creating the stack and rolled back**
 
