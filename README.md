@@ -7,7 +7,7 @@ The only thing you need to get started is:
 - An [AWS account](https://aws.amazon.com/free/). Just signup and give them some payment info.
 - Remote Desktop (Windows Pro) or an application that can make a remote desktop connection.
 
-Once you are done you will have a server that you can run for free, and also start and stop at whim. That way if you don't want to leave the server running all the time (i.e. not pay for it all the time), but would like to be able to start it up again easily, you can. Think it like a managed hosting provider that you will pay a fraction for, if hardly anything at all, and can run completely on demand.
+Once you are done you will have a server that you can run for free, and also start and stop at whim. That way if you don't want to leave the server running all the time (i.e. not pay for it all the time), but would like to be able to start it up again easily, you can. Think of it like a managed hosting provider that you will pay a fraction for, if hardly anything at all, and can run completely on demand.
 
 ## Index
 
