@@ -19,8 +19,11 @@ Once you are done you will have a server that you can run for free, and also sta
     + [Connect to your rFactor2 server](#connect-to-your-rfactor2-server)
     + [rFactor2 dedicated on your server](#rfactor2-dedicated-on-your-server)
     + [Additional environment details](#additional-environment-details)
-    + [Destroying your AWS rFactor2 server](#destroying-your-aws-rfactor2-server)
     + [Other cool things you can do hosting on AWS](#other-cool-things-you-can-do-hosting-on-aws)
+      - [Destroy your AWS rFactor2 server](#destroy-your-aws-rfactor2-server)
+      - [Stop the instance and restart it](#stop-the-instance-and-restart-it)
+      - [Use reserved instances](#use-reserved-instances)
+      - [Increase the disk size](#increase-the-disk-size)
   * [Using rFactor2 server](#using-rfactor2-server)
     + [Downloading workshop mods](#downloading-workshop-mods)
     + [Using ModMgr to install workshop mods](#using-modmgr-to-install-workshop-mods)
@@ -149,15 +152,48 @@ The reason for copying the rFactor2 Dedicated.exe into the root folder is largel
 
 MAS2.exe also gets copied over to the root directory simply for ease of use and consistency.
 
-### Destroying your AWS rFactor2 server
-
-If you ever decide you don't need your server anymore you can easily destroy all AWS services through the CloudFormation dashboard. There is a very simple Delete option for the selected CloudFormation stack.
+Jump ahead to [Using rFactor2 server](#Using-rFactor2-server) if you are following this guide to host on AWS and just want to get going.
 
 ### Other cool things you can do hosting on AWS
 
+#### Destroy your AWS rFactor2 server
+
+If you ever decide you don't need your server anymore you can easily destroy all AWS resources through the CloudFormation dashboard. There is a very simple Delete option for the selected CloudFormation stack.
+
+#### Stop the instance and restart it
+
 In the EC2 instance list (where you got the server connection settings) you can select the instance as you did before, select the `Instance State` dropdown, and Stop the instance. This is the equivalent to powering down your PC at home. It will still be there for you if you want to start it again, and instances have no cost when they are stopped so it can be a great cost saving measure.
 
+#### Use reserved instances
+
 Another thing you can do to manage cost if you're running a large server with lots of rFactor servers on it, or lots of small servers each with its own rFactor server, is take advantage of AWS reserved instances. AWS reserved instances come at a much lower cost if you are willing to commit to minimum term length of either 1 or 3 years. For leagues this would be a dirt cheap way of running the league servers.
+
+#### Increase the disk size
+
+If you have a ton of mods installed to your server you might find that 100GB of hard drive space isn't going to cut it. No problem, with AWS volumes you can increase it really easily.
+
+1) Open up AWS and go to the 'EC2' instances as shown below, select your server, and click on the Storage tab in the menu below the instance list. Click on the volume ID to go to that volume.
+<br/><img src="images/aws_ec2_volume.png" alt="EC2 volume" width="500" />
+
+2) On the volumes page click on `Actions` and select `Modify Volume`.
+<br/><img src="images/aws_volume_modify.png" alt="modify volume" width="300" />
+
+3) Enter the new hard drive size in GB. In this example we are increasing the hard drive from 100GB to 120GB. Click `Modify` when done.
+<br/><img src="images/aws_volume_size.png" alt="new volume size" width="400" />
+
+4) On this next screen just confirm that you want to modify the volume. As the dialog mentions, you need to increase the size of the partition on the machine.
+
+5) Remote desktop to the server now, search for "disk management" in the windows search bar, and select `Create and format hard disk partitions`. In this example we have a disk partitioned with 100GB and now have 20GB of unallocated space.
+<br/><img src="images/ms_disk_management.png" alt="disk management" width="400" />
+
+6) Right-click on the C: drive and select `Extend Volume`
+<br/><img src="images/ms_extend_volume.png" alt="extend volume" width="200" />
+
+7) By default windows will select all of the unallocated space and add it to the current C: drive partition, so click `Next`.
+<br/><img src="images/ms_volume_size.png" alt="ms volume size" width="400" />
+
+8) Click `Finish` on this final screen.
+<br/><img src="images/ms_volume_finish.png" alt="extend volume complete" width="300" />
 
 ## Using rFactor2 server
 
@@ -196,7 +232,13 @@ Use the above steam command for every workshop mod you want to use, and they wil
 cp C:\steamcmd\steamapps\workshop\content\365960\*\*.rfcmp C:\rfactor2-dedicated\Packages\
 ```
 
-Once you're done downloading any mods and they are all copied over to the packages folder you can close the powershell window.
+Once you're done downloading any mods and they are all copied over to the packages folder you might also want to delete the copy from the workshop folder so you aren't storing all mods in two places. Use this command to remove the workshop packages once you have copied them over to the server.
+
+```shell
+rm C:\steamcmd\steamapps\workshop\content\365960
+```
+
+Close the powershell window when you are done.
 
 ### Using ModMgr to install workshop mods
 
