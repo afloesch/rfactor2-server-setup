@@ -60,7 +60,7 @@ This will create and download a file called `rFactor2 Server.pem` in your Downlo
 
 Here's where the magic happens. To avoid any of the scary parts of configuring AWS, I have created a CloudFormation template that will automatically create everything for you. That's right; *everything*. The windows server, all firewall rules, steamcmd, and rFactor2 dedicated, all will be created or downloaded and then setup and ready to go. If you aren't deeply familiar with AWS even the most basic task of launching and connecting to a server can be fairly daunting, but even if you are setting them up can be annoyingly time consuming, so having a simple template to do it all for us makes life soooo much easier.
 
-You can view the raw template at `rfactor2server.cftemplate` in this gist if you are interested, but if you have no idea what I'm talking about don't worry about it, you don't need to look at it at all. I'm simply including it so any technical folks can modify that template for their own needs if desired.
+You can view the raw template at `.\rfactor2server.cftemplate` in this github repo if you are interested, but if you have no idea what I'm talking about don't worry about it, you don't need to look at it at all. I'm simply including it so any technical folks can modify that template for their own needs if desired.
 
 1) In the AWS search bar at the top search for `CloudFormation` and then select it.
 
