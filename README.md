@@ -2,7 +2,7 @@
 
 This guide compiles some basic AWS (Amazon Web Services) scripts put together to simplify the process of hosting a dedicated rFactor2 server, as well as covers every step on how to create, host, and manage your events in detail, and automates as much of this work as possible. You don't need to know anything about coding or AWS at all to complete this guide, or anything about setting up your home network or how to host a server. All you need to know is rFactor2 is awesome and would be way more awesome with your own multiplayer server. 
 
-The current [rFactor2 server setup guide](https://docs.studio-397.com/users-guide/setting-up-a-dedicated-server) covers the setup process only broadly, and the actual implementation of the server itself is so poorly done and filled with pitfalls that it can be incredibly frustrating to setup. It certainly doesn't help at all with the basic problem of hosting. I put this together over an afternoon as I worked through the pain and bugs myself, and hopefully this makes someone else's life easier too. The idea is to make this as easy for possible everyone.
+The current [rFactor2 server setup guide](https://docs.studio-397.com/users-guide/setting-up-a-dedicated-server) covers the setup process only broadly, and the actual implementation of the server itself is so poorly done and filled with pitfalls that it can be incredibly frustrating to setup. It certainly doesn't help at all with the basic problem of hosting. I put this together over an afternoon as I worked through the pain and bugs myself, and hopefully this makes someone else's life easier too.
 
 The only thing you need to get started is:
 
@@ -410,7 +410,3 @@ Now you can follow the same steps outlined earlier in this guide for installing 
   I didn't do a huge amount of load testing on the server before writing this up so if you find that you consistently have problems with 40 people or whatever on a t2.micro instance your best bet is going to be to delete the stack in CloudFormation, and then recreate it with a slightly larger instance size. Remember you can always stop the instance and start it again when you want it if you only want to pay for what you use.
 
   If you are running multiple rFactor2 servers on one large instance and start experiencing lag, the bottleneck may actually be the network, and you would be better off running multiple smaller servers with fewer rFactor2 servers running on them to spread out the network load over more machines and interfaces.
-
-- **Are you available to help me out with *XXXXXXXX***
-
-  Sorry probably not. If you follow the steps in the guide carefully you should be gtg, but if there's someway I can make this guide more clear, or something you feel is missing, please drop a comment on it.
