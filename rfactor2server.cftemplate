@@ -367,10 +367,10 @@ Parameters:
     Description: Enter the keyname of your private key
   DiscSizeParameter:
     Type: Number
-    Default: 30
-    MinValue: 30
+    Default: 100
+    MinValue: 50
     Description: >-
-      Size of the server hard drive in GB. 30 should be enough for most
+      Size of the server hard drive in GB. 100 should be enough for most
       use-cases
   VPCCIDRParameter:
     Type: String
