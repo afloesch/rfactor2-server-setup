@@ -281,7 +281,9 @@ Open MAS2 and we will create a simple mod with Sao Paulo and the Tatuus.
 5) On the components screen you don't need to select anything, since all clients will already have these default assets installed with rFactor2. Click `Done`.
 <br/><img src="images/mas2_comp_select.png" alt="car selection" width="300" />
 
-6) Here you can select which teams are available and what track layouts for the selected track/(s). In this case we only have one track layout, and will allow all Tatuus teams. When changing values here change only the Layouts or the Teams checkboxes. Click `Package` to bundle your mod when ready.
+6) Here you can select which teams are available and what track layouts for the selected track/(s). There is also some additional metadata that can be set for the mod, like the author, by clicking the `Info` button. 
+
+    In this case we only have one track layout, and will allow all Tatuus teams. When changing values here change only the Layouts or the Teams checkboxes. Click `Package` to bundle your mod when ready.
 <br/><img src="images/mas2_mod_pkg.png" alt="car selection" width="500" />
 
 > Note: Don't select any of the checkboxes for the small Locations and Vehicles windows. This unnecessarily increases the mod size, and seems to be some kind of legacy functionality to include all assets to be served with the mod. Not needed.
