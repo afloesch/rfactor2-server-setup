@@ -293,7 +293,7 @@ Open MAS2 and we will create a simple mod with Sao Paulo and the Tatuus.
 
 The new mod will now be available to rFactor2 dedicated server the next time it's started. Click `Done` to close the window, and you can also close MAS2 if you don't want to create another mod.
 
-If you ever decide to edit a mod that has already been served to users, as in they joined the server and so recieved a copy of your server's mod on their game client, and don't increment the version of the mod you edited, then clients will encounter an error when trying to join. To avoid this error you need to increment the mod version when you are doing the update, or create a whole new mod.
+If you ever decide to edit a mod that has already been served to users, as in they joined the server and so now they have a local copy of your server's mod on their game client, and don't increment the version of the mod you edited, then clients will encounter an error when trying to join. To avoid this error you need to increment the mod version when you are doing the update, or create a whole new mod. MAS2 defaults to version 1.0 when creating a new mod so make sure to bump that version if you want to edit a mod and then bring it back up on the server.
 
 ### Running rFactor2 Dedicated server events
 
