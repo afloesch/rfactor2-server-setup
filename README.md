@@ -250,7 +250,7 @@ Open ModMgr and it should look relatively similar to below.
 
 Make sure both the `Mods` and the `Components` checkboxes at the top left are checked to see everything.
 
-If you still don't see any mods, make sure the filepaths you see for "Install:" and for "Packages Dir:" are at the root of the rFactor2 dedicated folder. If those filepaths are not set to the root of the rFactor2 dedicated server folder then you can change the paths by clicking the little `B` button to the right of the "Working Dir:" and the "Packages Dir:" fields.
+If you still don't see any mods, make sure the filepaths you see for "Install:" and for "Packages Dir:" are at the root of the rFactor2 dedicated folder, without a "Bin32" or "Bin64" portion in the path. If those filepaths are not set to the root (as in the base folder) of the rFactor2 dedicated server folder then you can change the paths by clicking the little `B` button to the right of the "Working Dir:" and the "Packages Dir:" fields. The should match what's shown in the above screenshot.
 
 In the above example we have two mods we downloaded from Steam that we need to install; Sau Paulo GP and the Tatuus FT-50. Select one of the mods, the `Install` button will become active, and you can click it to install that mod to your rFactor2 server.
 
