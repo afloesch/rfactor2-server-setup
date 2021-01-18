@@ -367,7 +367,7 @@ When you are done downloading mods you can copy them all over to the server pack
 cp C:\steamcmd\steamapps\workshop\content\365960\*\*.rfcmp C:\rfactor2-dedicated\Packages\
 ```
 
-Now you can unpack and install these mods to the server using ModMgr. See the above section [Using ModMgr to install workshop mods](#Using-ModMgr-to-install-workshop-mods) for more info.
+Now you need to authorize the server.
 
 ### Authorize server to use DLC
 
