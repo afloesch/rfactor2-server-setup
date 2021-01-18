@@ -381,7 +381,7 @@ To generate the token for your server:
 4) Start rFactor2 and let the game launch. The game only needs to launch and then you can close it.
 5) Go back to your rFactor2 install folder on your gaming machine, and inside the `UserData` folder there will now be a `ServerUnlock.bin` file there. Copy it to `C:\rfactor2-dedicated\UserData\ServerUnlock.bin` on your rFactor2 server. In the end the UserData folder on the server should have both a `ServerKeys.bin` file and a `ServerUnlock.bin` file.
 
-Now you can follow the same steps outlined earlier in this guide for installing mods with ModMgr and creating mod events with MAS2. 
+Now you can follow the same steps outlined earlier in this guide for [using ModMgr to install workshop mods](#Using-ModMgr-to-install-workshop-mods) and [using MAS2 to create events](#Using-MAS2-to-create-events). 
 
 > Note: When using DLC content in an event you might notice two different versions of a vehicle. In this case select the latest version, and only the latest version of the car to add it to your mod.
 
