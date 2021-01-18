@@ -164,6 +164,8 @@ If you ever decide you don't need your server anymore you can easily destroy all
 
 In the EC2 instance list (where you got the server connection settings) you can select the instance as you did before, select the `Instance State` dropdown, and Stop the instance. This is the equivalent to powering down your PC at home. It will still be there for you if you want to start it again, and instances have no cost when they are stopped so it can be a great cost saving measure.
 
+Make sure not to terminate the instance or that will tell AWS that you want to permanently delete the server.
+
 #### Use reserved instances
 
 Another thing you can do to manage cost if you're running a large server with lots of rFactor servers on it, or lots of small servers each with its own rFactor server, is take advantage of AWS reserved instances. AWS reserved instances come at a much lower cost if you are willing to commit to minimum term length of either 1 or 3 years. For leagues this would be a dirt cheap way of running the league servers.
