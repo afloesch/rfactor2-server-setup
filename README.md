@@ -228,6 +228,8 @@ cd C:\steamcmd
 ./steamcmd +login anonymous +workshop_download_item 365960 WORKSHOP_ITEM_ID +quit
 ```
 
+> Note: if the terminal hangs while downloading a mod make sure the terminal window is focused and hit the enter key and the terminal should exit steamcmd.
+
 Use the above steam command for every workshop mod you want to use, and they will end up in the `C:\steamcmd\steamapps\workshop\content\365960` folder. If you look at the files you will see they are all *.rfcmp files. You need to copy all these files into the `C:\rfactor2-dedicated\Packages` folder. Here's a powershell command that will copy over all .rfcmp files to the packages folder:
 
 ```shell
