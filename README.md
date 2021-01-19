@@ -448,3 +448,27 @@ Now you can follow the same steps outlined earlier in this guide for [using ModM
   I didn't do a huge amount of load testing on the server before writing this up so if you find that you consistently have problems with 40 people or whatever on a t2.micro instance your best bet is going to be to delete the stack in CloudFormation, and then recreate it with a slightly larger instance size. Remember you can always stop the instance and start it again when you want it if you only want to pay for what you use.
 
   If you are running multiple rFactor2 servers on one large instance and start experiencing lag, the bottleneck may actually be the network, and you would be better off running multiple smaller servers with fewer rFactor2 servers running on them to spread out the network load over more machines and interfaces.
+
+- **ModMgr freezes the whole server when installing a really large mod like Le Mans or Nurburgring**
+
+  On the smaller default instance size of the t2.micro we have seen that application completely hang the OS and never recover. Interestingly if you bump the instance size up just one to a t2.small they unpack okay, but on the t2.micro it catastrophically hangs the OS. 
+
+  Here's how you can recover the server and reconnect:
+
+  1) Open the AWS console and go to your `EC2` instances.
+
+  2) Select your rFactor2 server with the checkbox, select the `Instance State` dropdown, and select `Stop instance`. Wait for the instance state to show the instance is fully stopped (you need to manually refresh to see changes to the instance state column).
+
+  3) Now select the `Instance State` dropdown again and select `Start instance`. Wait for the status checks to show "2/2 passing".
+
+  4) Get the server's new connection settings following the same steps in the [Connect to your rFactor2 server](#Connect-to-your-rFactor2-server) section.
+
+  If you don't want to pay for a larger instance size (t2.micro is the only free-tier eligible size) a workaround we have found is to actually just copy the files from the local game install over to the server.
+
+  1) Open rFactor2 install folder on your computer and open the `.\Installed` folder. Tracks can be found in `.\Installed\Locations` folder, and cars in the `.\Installed\Vehicles` folder.
+
+  2) Remote desktop to your server, and open the `C:\rfactor2-dedicated` folder.
+
+  3) Copy any mod folder that you were not able to unpack like the `\Installed\Locations\LeMans_2018` mod over to the same location on the server. You can simply right click on the LeMans folder and then paste it into the right folder on the server with remote desktop. It's a poor way to transfer files but works in a pinch.
+
+  Now if you open ModMgr it will show the mod is installed and you can build it into an event mod with MAS2. When you run the server with a really large mod like that the server can take a long time to load and startup.
