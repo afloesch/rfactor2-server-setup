@@ -351,15 +351,13 @@ Parameters:
       size.
   KeyNameParameter:
     Type: String
-    Default: rFactor2 Server
     Description: Enter the keyname of your private key
   DiscSizeParameter:
     Type: Number
-    Default: 100
-    MinValue: 50
+    Default: 30
+    MinValue: 30
     Description: >-
-      Size of the server hard drive in GB. 100 should be enough for most
-      use-cases
+      Size of the server hard drive in GB. 30 is the largest size that is free-tier eligible
   VPCCIDRParameter:
     Type: String
     Default: 10.11.0.0/16

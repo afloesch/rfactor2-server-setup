@@ -172,7 +172,7 @@ Another thing you can do to manage cost if you're running a large server with lo
 
 #### Increase the disk size
 
-If you have a ton of mods installed to your server you might find that 100GB of hard drive space isn't going to cut it. No problem, with AWS volumes you can increase it really easily.
+If you have a ton of mods installed to your server you might find that 30GB of hard drive space isn't going to cut it. No problem, with AWS volumes you can increase it really easily. See [AWS EBS pricing](https://aws.amazon.com/ebs/pricing/) for details on storage costs.
 
 1) Open up AWS and go to the 'EC2' instances as shown below, select your server, and click on the Storage tab in the menu below the instance list. Click on the volume ID to go to that volume.
 <br/><img src="images/aws_ec2_volume.png" alt="EC2 volume" width="500" />
@@ -239,7 +239,7 @@ cp C:\steamcmd\steamapps\workshop\content\365960\*\*.rfcmp C:\rfactor2-dedicated
 Once you're done downloading any mods and they are all copied over to the packages folder you might also want to delete the copy from the workshop folder so you aren't storing all mods in two places. Use this command to remove the workshop packages once you have copied them over to the server.
 
 ```shell
-rm C:\steamcmd\steamapps\workshop\content\365960
+rm C:\steamcmd\steamapps\workshop\content\365960 -Recurse
 ```
 
 Close the powershell window when you are done.
